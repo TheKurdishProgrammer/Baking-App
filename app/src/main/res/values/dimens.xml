@@ -17,5 +17,6 @@ http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
     <dimen name="choose_recipe_size">24sp</dimen>
     <dimen name="recipe_name_size">24sp</dimen>
     <dimen name="recipe_name_padding">8dp</dimen>
+    <dimen name="medium_size_text">12sp</dimen>
     <dimen name="recipe_margin">8dp</dimen>
 </resources>

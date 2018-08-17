@@ -14,7 +14,6 @@
         android:orientation="vertical"
         tools:context=".activitiesAndFragments.ReceipeDetailFragment">
 
-
         <ImageView
             android:id="@+id/no_video"
             android:layout_width="match_parent"
@@ -25,11 +24,25 @@
             android:src="@drawable/novideo"
             android:visibility="gone" />
 
-        <com.google.android.exoplayer2.ui.PlayerView
-            android:id="@+id/step_video"
+        <RelativeLayout
+            android:id="@+id/video_container"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1" />
+            android:layout_weight="1">
+
+            <com.google.android.exoplayer2.ui.PlayerView
+                android:id="@+id/step_video"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+
+            <ProgressBar
+                android:id="@+id/video_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true" />
+
+        </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -46,16 +59,20 @@
                 app:cardElevation="8dp"
                 app:cardUseCompatPadding="true">
 
-
-                <TextView
-                    android:id="@+id/step_description"
+                <ScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:layout_margin="@dimen/step_desc_margin_text"
-                    android:gravity="center"
-                    android:textAlignment="center"
-                    android:textSize="@dimen/step_desc_size_text" />
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/step_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/step_desc_margin_text"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/step_desc_size_text" />
+                </ScrollView>
 
             </android.support.v7.widget.CardView>
 
@@ -63,6 +80,7 @@
 
 
         <RelativeLayout
+            android:layout_margin="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0">

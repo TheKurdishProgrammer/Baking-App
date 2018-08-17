@@ -3,7 +3,6 @@ package com.example.mohammed.baking_app.activitiesAndFragments;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
@@ -33,13 +32,11 @@ public class ReceipeListActivity extends AppCompatActivity {
      * device.
      */
     private boolean mTwoPane;
-    private CardView ingredientCard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_receipe_list);
-        ingredientCard = findViewById(R.id.ingredient_card);
 
         if (findViewById(R.id.receipe_detail_container) != null) {
             // The detail container view will be present only in the
@@ -93,4 +90,6 @@ public class ReceipeListActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
+
 }

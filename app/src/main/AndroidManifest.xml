@@ -14,9 +14,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:resizeableActivity="true"
+            android:supportsPictureInPicture="true"
             android:name=".activitiesAndFragments.ReceipeListActivity"
             android:label="@string/title_receipe_list" />
         <activity
+            android:resizeableActivity="true"
+            android:supportsPictureInPicture="true"
             android:name=".activitiesAndFragments.ReceipeDetailActivity"
             android:label="@string/title_receipe_detail" />
         <activity android:name=".activitiesAndFragments.MainActivity">

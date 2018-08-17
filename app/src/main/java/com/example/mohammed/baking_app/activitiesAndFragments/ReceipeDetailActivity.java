@@ -17,6 +17,8 @@ import com.example.mohammed.baking_app.R;
 public class ReceipeDetailActivity extends AppCompatActivity {
 
 
+    private ReceipeDetailFragment fragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,11 +51,15 @@ public class ReceipeDetailActivity extends AppCompatActivity {
                 getIntent().getIntExtra(ReceipeDetailFragment.POSITION, 0));
 
 
-        ReceipeDetailFragment fragment = new ReceipeDetailFragment();
+        if (savedInstanceState != null)
+            fragment = (ReceipeDetailFragment) getSupportFragmentManager().getFragment(savedInstanceState, "FRAG");
+        else
+            fragment = new ReceipeDetailFragment();
+
         fragment.setArguments(arguments);
 
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.receipe_detail_container, fragment)
+                .replace(R.id.receipe_detail_container, fragment)
                 .commit();
 
     }
@@ -72,5 +78,12 @@ public class ReceipeDetailActivity extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        getSupportFragmentManager().putFragment(outState, "FRAG", fragment);
     }
 }

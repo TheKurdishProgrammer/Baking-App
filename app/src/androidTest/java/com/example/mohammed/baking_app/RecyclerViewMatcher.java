@@ -17,9 +17,6 @@ public class RecyclerViewMatcher {
         this.recyclerViewId = recyclerViewId;
     }
 
-    public Matcher<View> atPosition(final int position) {
-        return atPositionOnView(position, -1);
-    }
 
     public Matcher<View> atPositionOnView(final int position, final int targetViewId) {
 

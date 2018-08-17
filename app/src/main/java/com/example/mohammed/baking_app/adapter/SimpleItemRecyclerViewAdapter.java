@@ -45,9 +45,9 @@ public class SimpleItemRecyclerViewAdapter
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
 
 
-        holder.mContentView.setText(steps.get(position).getShortDescription());
+        holder.recipeName.setText(steps.get(position).getShortDescription());
         holder.itemView.setTag(steps.get(position));
-
+        holder.stepId.setText(String.valueOf(steps.get(position).getId() + 1));
         holder.itemView.setOnClickListener(view -> {
             if (mTwoPane) {
                 /*
@@ -92,11 +92,12 @@ public class SimpleItemRecyclerViewAdapter
 
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        final TextView mContentView;
+        private TextView recipeName, stepId;
 
         ViewHolder(View view) {
             super(view);
-            mContentView = view.findViewById(R.id.content);
+            recipeName = view.findViewById(R.id.content);
+            stepId = view.findViewById(R.id.step_id);
         }
     }
 }

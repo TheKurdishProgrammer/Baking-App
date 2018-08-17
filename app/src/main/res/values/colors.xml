@@ -5,4 +5,5 @@
     <color name="colorAccent">#FF4081</color>
     <color name="widget_item">#c1c1c1</color>
     <color name="recipe_name_background">#c1c1c1</color>
+    <color name="recipe_name_trans_back">#7d000000</color>
 </resources>
