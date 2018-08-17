@@ -170,7 +170,14 @@ public class ReceipeDetailFragment extends Fragment {
     public void onPause() {
         super.onPause();
         currentVideoPosition = player.getCurrentPosition();
+        if (Util.SDK_INT <= 23)
+            releasePlayer();
+    }
 
+    private void releasePlayer() {
+        player.release();
+        binding.stepVideo.setPlayer(null);
+        player = null;
     }
 
     private void initializePlayer() {
@@ -275,9 +282,8 @@ public class ReceipeDetailFragment extends Fragment {
     @Override
     public void onStop() {
         super.onStop();
-        player.release();
-        binding.stepVideo.setPlayer(null);
-        player = null;
+        if (Util.SDK_INT >= 24)
+            releasePlayer();
     }
 
     @Override
