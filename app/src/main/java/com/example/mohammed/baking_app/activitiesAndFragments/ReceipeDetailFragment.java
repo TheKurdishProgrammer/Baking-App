@@ -170,6 +170,7 @@ public class ReceipeDetailFragment extends Fragment {
     public void onPause() {
         super.onPause();
         currentVideoPosition = player.getCurrentPosition();
+        playBackState = player.getPlayWhenReady()
         if (Util.SDK_INT <= 23)
             releasePlayer();
     }
@@ -291,7 +292,7 @@ public class ReceipeDetailFragment extends Fragment {
         super.onSaveInstanceState(outState);
         outState.putLong(CURRENT_TIME_POSITION, currentVideoPosition);
         outState.putParcelableArrayList(STEPS, steps);
-        outState.putBoolean(PLAY_BACK_STATE, player.getPlayWhenReady());
+        outState.putBoolean(PLAY_BACK_STATE, playBackState);
         outState.putInt(POSITION, currentStepPoisition);
     }
 }
